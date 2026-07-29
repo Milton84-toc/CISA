@@ -4,14 +4,381 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Wiki académica sobre el modelo y certificación CISA">
-  <title>Wiki CISA | Equipo 5</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Wiki CISA | Equipo de 5 integrantes</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #0b3d5c;
+      --primary-dark: #07283d;
+      --accent: #26a6a1;
+      --background: #f4f7f9;
+      --surface: #ffffff;
+      --text: #17212b;
+      --muted: #5f6b76;
+      --border: #dce5ea;
+      --shadow: 0 16px 40px rgba(10, 40, 60, 0.09);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--background);
+      line-height: 1.7;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    .hero {
+      min-height: 72vh;
+      color: white;
+      background:
+        linear-gradient(135deg, rgba(7, 40, 61, 0.98), rgba(11, 61, 92, 0.88)),
+        radial-gradient(circle at top right, #26a6a1, transparent 45%);
+    }
+
+    .navbar {
+      width: min(1180px, 92%);
+      margin: auto;
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .brand {
+      color: white;
+      text-decoration: none;
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.1rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.94rem;
+    }
+
+    .nav-links a:hover {
+      color: #b7f3ef;
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    .hero-content {
+      width: min(900px, 92%);
+      margin: auto;
+      padding: 8rem 0 6rem;
+    }
+
+    .eyebrow,
+    .section-heading span {
+      color: var(--accent);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-size: 0.82rem;
+    }
+
+    .hero h1 {
+      max-width: 780px;
+      margin: 0.5rem 0 1rem;
+      font-size: clamp(2.5rem, 7vw, 5.2rem);
+      line-height: 1.02;
+    }
+
+    .hero-content > p:not(.eyebrow) {
+      max-width: 720px;
+      font-size: 1.15rem;
+      color: #d8e8ef;
+    }
+
+    .primary-btn {
+      display: inline-block;
+      margin-top: 1.7rem;
+      padding: 0.9rem 1.2rem;
+      border-radius: 12px;
+      color: var(--primary-dark);
+      background: white;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .section {
+      padding: 6rem max(4%, calc((100% - 1180px) / 2));
+    }
+
+    .section-alt {
+      background: #eaf1f4;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 2.2rem;
+    }
+
+    .section-heading h2 {
+      margin: 0.35rem 0;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1.12;
+    }
+
+    .section-heading p,
+    .caption,
+    small {
+      color: var(--muted);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+    }
+
+    .team-card,
+    .text-card,
+    .media-card,
+    .comparison-card,
+    .case-study,
+    .bibliography {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .team-card {
+      padding: 1.4rem;
+    }
+
+    .team-card .number {
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .team-card h3 {
+      margin-top: 1.2rem;
+    }
+
+    .team-card small {
+      display: block;
+      margin-top: 0.65rem;
+      line-height: 1.45;
+    }
+
+    .content-grid,
+    .cards-two {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.4rem;
+    }
+
+    .text-card,
+    .comparison-card,
+    .bibliography {
+      padding: 2rem;
+    }
+
+    .text-card h3:not(:first-child) {
+      margin-top: 1.5rem;
+    }
+
+    .media-card {
+      overflow: hidden;
+    }
+
+    .media-card img {
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .caption {
+      padding: 0.8rem 1rem;
+      font-size: 0.88rem;
+    }
+
+    .video-block {
+      margin-top: 1.4rem;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--primary-dark);
+      box-shadow: var(--shadow);
+    }
+
+    .video-block iframe {
+      width: 100%;
+      min-height: 420px;
+      border: 0;
+      display: block;
+    }
+
+    .gallery {
+      margin-top: 1.4rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.4rem;
+    }
+
+    .gallery figure {
+      overflow: hidden;
+      border-radius: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .gallery img {
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .gallery figcaption {
+      padding: 0.8rem 1rem;
+      color: var(--muted);
+    }
+
+    .comparison-card {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .comparison-card ul {
+      padding-left: 1.2rem;
+    }
+
+    .case-study {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      color: var(--primary-dark);
+      background: #b7f3ef;
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+
+    .case-study h3 {
+      margin: 0.8rem 0;
+      font-size: 1.8rem;
+    }
+
+    .steps {
+      padding-left: 1.4rem;
+    }
+
+    .steps li + li {
+      margin-top: 0.9rem;
+    }
+
+    .conclusion {
+      margin-top: 1.4rem;
+    }
+
+    .bibliography p + p {
+      margin-top: 1rem;
+    }
+
+    footer {
+      padding: 2rem;
+      text-align: center;
+      color: #d8e8ef;
+      background: var(--primary-dark);
+    }
+
+    @media (max-width: 950px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 78px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        padding: 1rem;
+        border-radius: 14px;
+        background: var(--primary-dark);
+        z-index: 5;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+
+      .content-grid,
+      .cards-two,
+      .gallery,
+      .comparison-card,
+      .case-study,
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content {
+        padding: 5rem 0;
+      }
+
+      .video-block iframe {
+        min-height: 240px;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header class="hero">
     <nav class="navbar">
       <a class="brand" href="#inicio">CISA Wiki</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">
+        ☰
+      </button>
+
       <div class="nav-links" id="navLinks">
         <a href="#inicio">Inicio</a>
         <a href="#integrante-1">Parte 1</a>
@@ -26,10 +393,12 @@
     <section id="inicio" class="hero-content">
       <p class="eyebrow">Actividad evaluada 1 · Frameworks</p>
       <h1>Modelo y certificación CISA</h1>
+
       <p>
         Investigación colaborativa sobre CISA, sus dominios, aplicaciones,
         ventajas y relevancia dentro de la auditoría de sistemas de información.
       </p>
+
       <a class="primary-btn" href="#integrantes">Ver integrantes</a>
     </section>
   </header>
@@ -39,7 +408,7 @@
       <div class="section-heading">
         <span>Equipo</span>
         <h2>Integrantes y distribución</h2>
-        <p>Cambien los nombres y marquen cada parte cuando esté terminada.</p>
+        <p>Cambien los nombres y completen únicamente la sección asignada.</p>
       </div>
 
       <div class="team-grid">
@@ -49,24 +418,28 @@
           <p>Nombre completo</p>
           <small>Introducción, historia y objetivo de CISA.</small>
         </article>
+
         <article class="team-card">
           <span class="number">02</span>
           <h3>Integrante 2</h3>
           <p>Nombre completo</p>
           <small>Dominios 1 y 2.</small>
         </article>
+
         <article class="team-card">
           <span class="number">03</span>
           <h3>Integrante 3</h3>
           <p>Nombre completo</p>
           <small>Dominios 3 y 4.</small>
         </article>
+
         <article class="team-card">
           <span class="number">04</span>
           <h3>Integrante 4</h3>
           <p>Nombre completo</p>
           <small>Dominio 5 y aplicaciones.</small>
         </article>
+
         <article class="team-card">
           <span class="number">05</span>
           <h3>Integrante 5</h3>
@@ -76,7 +449,9 @@
       </div>
     </section>
 
-    <!-- ZONA DEL INTEGRANTE 1 -->
+    <!-- =========================
+         ZONA DEL INTEGRANTE 1
+    ========================== -->
     <section class="section section-alt" id="integrante-1">
       <div class="section-heading">
         <span>Parte 1 · Integrante 1</span>
@@ -87,28 +462,40 @@
         <article class="text-card">
           <h3>¿Qué es CISA?</h3>
           <p>
-            Sustituir este texto por información verificada. Procuren redactar
-            con palabras propias y colocar la fuente utilizada.
+            Sustituir este texto por información verificada y redactada con
+            palabras propias.
           </p>
+
           <h3>Historia y origen</h3>
-          <p>Agregar aquí la historia, institución responsable y evolución.</p>
+          <p>
+            Agregar aquí la historia de CISA, la institución responsable y su
+            evolución.
+          </p>
+
           <h3>Objetivo e importancia</h3>
-          <p>Explicar el propósito de CISA y su importancia en auditoría de TI.</p>
+          <p>
+            Explicar el propósito de CISA y su importancia en la auditoría de TI.
+          </p>
         </article>
 
         <aside class="media-card">
-          <img src="img/parte-1.jpg" alt="Imagen relacionada con la introducción de CISA"
-               onerror="this.parentElement.classList.add('missing')">
-          <div class="placeholder">
-            <strong>Imagen de la Parte 1</strong>
-            <span>Guardar como: img/parte-1.jpg</span>
-          </div>
-          <p class="caption">Agregar una breve descripción y la fuente de la imagen.</p>
+          <!-- CAMBIAR EL ENLACE DE LA IMAGEN -->
+          <img
+            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
+            alt="Tecnología y auditoría de sistemas"
+          >
+
+          <p class="caption">
+            Cambiar el enlace anterior por una imagen relacionada con CISA y
+            colocar aquí su fuente.
+          </p>
         </aside>
       </div>
     </section>
 
-    <!-- ZONA DEL INTEGRANTE 2 -->
+    <!-- =========================
+         ZONA DEL INTEGRANTE 2
+    ========================== -->
     <section class="section" id="integrante-2">
       <div class="section-heading">
         <span>Parte 2 · Integrante 2</span>
@@ -118,31 +505,35 @@
       <div class="cards-two">
         <article class="text-card">
           <h3>Dominio 1: Proceso de auditoría</h3>
-          <p>Definición, actividades principales y ejemplo sencillo.</p>
+          <p>
+            Agregar definición, actividades principales, importancia y un ejemplo
+            sencillo.
+          </p>
         </article>
+
         <article class="text-card">
           <h3>Dominio 2: Gobierno y gestión de TI</h3>
-          <p>Definición, responsabilidades y ejemplo sencillo.</p>
+          <p>
+            Agregar definición, responsabilidades, importancia y un ejemplo
+            sencillo.
+          </p>
         </article>
       </div>
 
       <div class="video-block">
-        <div class="video-placeholder">
-          <strong>Video de apoyo</strong>
-          <p>Reemplacen VIDEO_ID por el identificador de un video de YouTube.</p>
-        </div>
-        <!-- Ejemplo:
+        <!-- CAMBIAR VIDEO_ID POR EL ID DEL VIDEO DE YOUTUBE -->
         <iframe
           src="https://www.youtube.com/embed/VIDEO_ID"
-          title="Video sobre los dominios 1 y 2 de CISA"
+          title="Video sobre CISA"
           loading="lazy"
           allowfullscreen>
         </iframe>
-        -->
       </div>
     </section>
 
-    <!-- ZONA DEL INTEGRANTE 3 -->
+    <!-- =========================
+         ZONA DEL INTEGRANTE 3
+    ========================== -->
     <section class="section section-alt" id="integrante-3">
       <div class="section-heading">
         <span>Parte 3 · Integrante 3</span>
@@ -152,42 +543,68 @@
       <div class="cards-two">
         <article class="text-card">
           <h3>Dominio 3: Adquisición, desarrollo e implementación</h3>
-          <p>Explicar de qué trata, procesos relacionados y un ejemplo.</p>
+          <p>
+            Explicar de qué trata este dominio, los procesos relacionados y un
+            ejemplo.
+          </p>
         </article>
+
         <article class="text-card">
           <h3>Dominio 4: Operaciones y resiliencia del negocio</h3>
-          <p>Explicar continuidad, operaciones, incidentes y recuperación.</p>
+          <p>
+            Explicar continuidad, operaciones, gestión de incidentes y
+            recuperación.
+          </p>
         </article>
       </div>
 
       <div class="gallery">
         <figure>
-          <img src="img/dominio-3.jpg" alt="Representación del dominio 3"
-               onerror="this.parentElement.classList.add('missing')">
-          <figcaption>Imagen del dominio 3 · agregar fuente.</figcaption>
+          <!-- CAMBIAR EL ENLACE -->
+          <img
+            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
+            alt="Desarrollo e implementación de sistemas"
+          >
+          <figcaption>
+            Imagen relacionada con el dominio 3. Agregar fuente.
+          </figcaption>
         </figure>
+
         <figure>
-          <img src="img/dominio-4.jpg" alt="Representación del dominio 4"
-               onerror="this.parentElement.classList.add('missing')">
-          <figcaption>Imagen del dominio 4 · agregar fuente.</figcaption>
+          <!-- CAMBIAR EL ENLACE -->
+          <img
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
+            alt="Operaciones tecnológicas y resiliencia"
+          >
+          <figcaption>
+            Imagen relacionada con el dominio 4. Agregar fuente.
+          </figcaption>
         </figure>
       </div>
     </section>
 
-    <!-- ZONA DEL INTEGRANTE 4 -->
+    <!-- =========================
+         ZONA DEL INTEGRANTE 4
+    ========================== -->
     <section class="section" id="integrante-4">
       <div class="section-heading">
         <span>Parte 4 · Integrante 4</span>
-        <h2>Dominio 5, aplicaciones, ventajas y desventajas</h2>
+        <h2>Dominio 5, aplicaciones, ventajas y desafíos</h2>
       </div>
 
       <div class="content-grid">
         <article class="text-card">
           <h3>Dominio 5: Protección de activos de información</h3>
-          <p>Agregar conceptos de seguridad, controles, riesgos y protección.</p>
+          <p>
+            Agregar conceptos de seguridad, controles, amenazas, riesgos y
+            protección de datos.
+          </p>
 
           <h3>Aplicaciones profesionales</h3>
-          <p>Explicar dónde se utiliza CISA y qué tareas realiza un auditor.</p>
+          <p>
+            Explicar dónde se utiliza CISA y qué tareas realiza un auditor de
+            sistemas.
+          </p>
         </article>
 
         <article class="comparison-card">
@@ -199,6 +616,7 @@
               <li>Agregar ventaja 3.</li>
             </ul>
           </div>
+
           <div>
             <h3>Limitaciones o desafíos</h3>
             <ul>
@@ -211,7 +629,9 @@
       </div>
     </section>
 
-    <!-- ZONA DEL INTEGRANTE 5 -->
+    <!-- =========================
+         ZONA DEL INTEGRANTE 5
+    ========================== -->
     <section class="section section-alt" id="integrante-5">
       <div class="section-heading">
         <span>Parte 5 · Integrante 5</span>
@@ -222,8 +642,9 @@
         <div>
           <span class="tag">Caso práctico</span>
           <h3>Auditoría de seguridad en una organización</h3>
+
           <p>
-            Describir una situación ficticia o real, sin revelar datos privados:
+            Describir una situación ficticia o real sin revelar datos privados:
             problema detectado, pasos de auditoría, evidencia recopilada,
             hallazgos, riesgos y recomendaciones.
           </p>
@@ -239,10 +660,10 @@
 
       <article class="text-card conclusion">
         <h3>Conclusiones del equipo</h3>
+
         <p>
-          Escribir una conclusión general construida a partir de todas las
-          secciones. No repetir la introducción; destacar los principales
-          aprendizajes.
+          Escribir una conclusión general basada en todas las secciones y
+          destacar los principales aprendizajes.
         </p>
       </article>
     </section>
@@ -251,18 +672,22 @@
       <div class="section-heading">
         <span>Fuentes</span>
         <h2>Bibliografía</h2>
-        <p>Usen un solo formato, preferiblemente APA 7.</p>
+        <p>Utilicen un solo formato, preferiblemente APA 7.</p>
       </div>
 
       <div class="bibliography">
         <p>
-          Apellido, A. A. (Año). <em>Título del recurso</em>. Institución o sitio web.
-          URL
+          Apellido, A. A. (Año). <em>Título del recurso</em>. Institución o
+          sitio web. URL
         </p>
+
         <p>
           ISACA. (Año). <em>Título del recurso consultado</em>. URL
         </p>
-        <p>Agregar aquí todas las fuentes utilizadas por los cinco integrantes.</p>
+
+        <p>
+          Agregar aquí todas las fuentes utilizadas por los cinco integrantes.
+        </p>
       </div>
     </section>
   </main>
@@ -271,6 +696,21 @@
     <p>Wiki académica sobre CISA · Equipo de 5 integrantes · 2026</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
 </body>
 </html>
