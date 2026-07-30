@@ -317,6 +317,86 @@
       background: var(--primary-dark);
     }
 
+    /* ==== Estilos para la sección del Integrante 5 (Caso práctico) ==== */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.2rem 0;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      font-size: 0.92rem;
+    }
+
+    .data-table th,
+    .data-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .data-table th {
+      background: var(--primary);
+      color: white;
+      font-weight: 700;
+    }
+
+    .data-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .data-table tbody tr:nth-child(even) {
+      background: var(--background);
+    }
+
+    .status {
+      display: inline-block;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: white;
+      white-space: nowrap;
+    }
+
+    .status-ok { background: var(--accent); }
+    .status-partial { background: #b8862c; }
+    .status-no { background: #b23b3b; }
+
+    .highlight-quote {
+      margin: 1.2rem 0;
+      padding: 0.9rem 1.2rem;
+      border-left: 4px solid var(--accent);
+      background: var(--background);
+      border-radius: 0 12px 12px 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    #integrante-5 h4 {
+      margin-top: 1.4rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-dark);
+    }
+
+    #integrante-5 .text-card + .text-card {
+      margin-top: 1.4rem;
+    }
+
+    #integrante-5 ul {
+      padding-left: 1.2rem;
+    }
+
+    #integrante-5 ul li + li {
+      margin-top: 0.5rem;
+    }
+
     @media (max-width: 950px) {
       .team-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -893,35 +973,252 @@ Ejemplo sencillo: Un KPI podría ser "tiempo promedio para resolver un ticket de
       <div class="section-heading">
         <span>Parte 5 · Integrante 5</span>
         <h2>Caso práctico y conclusiones</h2>
+        <p>
+          Auditoría de ciberseguridad aplicando los Cross-Sector Cybersecurity
+          Performance Goals (CPGs) de CISA.
+        </p>
       </div>
 
-      <article class="case-study">
-        <div>
-          <span class="tag">Caso práctico</span>
-          <h3>Auditoría de seguridad en una organización</h3>
+      <article class="text-card">
+        <span class="tag">Caso práctico</span>
+        <h3>1. Caso práctico: auditoría basada en los CPGs de CISA</h3>
 
-          <p>
-            Describir una situación ficticia o real sin revelar datos privados:
-            problema detectado, pasos de auditoría, evidencia recopilada,
-            hallazgos, riesgos y recomendaciones.
-          </p>
+        <p>
+          Las Cross-Sector Cybersecurity Performance Goals (CPGs) son un marco
+          de referencia desarrollado por CISA, la agencia del Departamento de
+          Seguridad Nacional de Estados Unidos responsable de coordinar la
+          defensa cibernética y física de la infraestructura crítica del país.
+          Los CPGs constituyen un subconjunto priorizado de prácticas de
+          ciberseguridad para entornos de Tecnología de la Información (TI) y
+          Tecnología Operativa (OT), seleccionado a partir de las tácticas y
+          técnicas de amenaza más observadas por CISA y sus socios de gobierno
+          e industria. La versión vigente, CPG 2.0, se alinea con las seis
+          funciones del NIST Cybersecurity Framework 2.0 —Gobernar,
+          Identificar, Proteger, Detectar, Responder y Recuperar— e incorpora,
+          para cada meta evaluada, calificaciones de costo, impacto y
+          facilidad de implementación.
+        </p>
+
+        <h4>1.1 Nota metodológica</h4>
+        <p>
+          El caso que se presenta a continuación es un ejercicio ilustrativo
+          construido a partir de un perfil organizacional típico del sector
+          financiero cooperativo, con el propósito de mostrar de forma
+          aplicada cómo se traduce el marco CPG 2.0 en un ejercicio real de
+          auditoría. Los hallazgos, nombres y cifras son ficticios, pero
+          reflejan patrones de brecha reportados de manera consistente en
+          evaluaciones de este tipo dentro del sector financiero y
+          cooperativo.
+        </p>
+
+        <h4>1.2 Ficha del caso</h4>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Campo</th><th>Detalle</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Organización auditada</td><td>Cooperativa Financiera Confía, R.L. (nombre ilustrativo) — cooperativa de ahorro y crédito de tamaño medio, ~140 empleados, con banca en línea y app móvil propias</td></tr>
+              <tr><td>Sector</td><td>Servicios financieros (uno de los 16 sectores de infraestructura crítica reconocidos por CISA)</td></tr>
+              <tr><td>Marco de referencia</td><td>Cross-Sector Cybersecurity Performance Goals (CPGs) 2.0, con mapeo a las seis funciones del NIST CSF 2.0</td></tr>
+              <tr><td>Tipo de auditoría</td><td>Autoevaluación asistida (gap assessment), previa a una auditoría externa de cumplimiento regulatorio</td></tr>
+              <tr><td>Herramienta de apoyo</td><td>Cyber Security Evaluation Tool (CSET), módulo CPG 2.0</td></tr>
+              <tr><td>Alcance</td><td>Infraestructura de TI corporativa, plataforma de banca en línea y proveedores de servicios gestionados (MSP) de soporte técnico</td></tr>
+              <tr><td>Duración del ejercicio</td><td>6 semanas: 2 de recopilación documental, 2 de entrevistas y pruebas técnicas, 2 de análisis y reporte</td></tr>
+            </tbody>
+          </table>
         </div>
 
-        <ol class="steps">
-          <li><strong>Situación:</strong> explicar el contexto.</li>
-          <li><strong>Evaluación:</strong> indicar qué se revisó.</li>
-          <li><strong>Hallazgos:</strong> resumir los problemas.</li>
-          <li><strong>Recomendaciones:</strong> proponer mejoras.</li>
-        </ol>
+        <h4>1.3 Objetivo y alcance</h4>
+        <p>
+          El objetivo del ejercicio fue determinar el nivel de madurez de la
+          cooperativa frente al subconjunto priorizado de prácticas de los
+          CPGs 2.0, identificar brechas de alto impacto y producir una hoja de
+          ruta de remediación ordenada por costo, impacto y facilidad de
+          implementación, siguiendo la misma lógica de priorización que
+          emplea CISA en su metodología oficial. El alcance cubrió la
+          infraestructura de TI corporativa, la plataforma de banca en línea y
+          el proveedor de servicios gestionados (MSP) responsable del soporte
+          de red, dejando fuera de alcance los sistemas de terceros no
+          contratados directamente por la cooperativa.
+        </p>
+
+        <h4>1.4 Metodología aplicada</h4>
+        <ul>
+          <li>Revisión documental: políticas de seguridad, contratos con el MSP, inventarios de activos, planes de continuidad y respuesta a incidentes.</li>
+          <li>Entrevistas estructuradas con el encargado de TI, el gerente de operaciones y un representante del MSP.</li>
+          <li>Pruebas técnicas puntuales: verificación de configuración de MFA, revisión de segmentación de red mediante análisis de VLAN, y muestreo de registros de backup.</li>
+          <li>Uso del módulo CPG 2.0 del CSET para estructurar el cuestionario de autoevaluación y homologar la calificación de cada meta con la metodología oficial de CISA.</li>
+          <li>Clasificación de cada meta evaluada en tres estados: Cumple, Cumple parcialmente y No cumple, siguiendo las seis funciones del CSF 2.0 en las que se apoya la versión 2.0 de los CPGs.</li>
+        </ul>
+
+        <h4>1.5 Resultados por función</h4>
+        <p>
+          Muestra representativa de las metas evaluadas —no la totalidad del
+          cuestionario CPG, que excede el propósito ilustrativo de este
+          caso— junto con el hallazgo principal, el estado de cumplimiento y
+          la prioridad asignada:
+        </p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Función</th><th>Meta evaluada (CPG)</th><th>Hallazgo principal</th><th>Estado</th><th>Prioridad</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Gobernar</td>
+                <td>Liderazgo y responsabilidad en ciberseguridad</td>
+                <td>Existe un encargado de TI, pero no hay un rol formal de responsable de ciberseguridad con autoridad sobre presupuesto e incidentes</td>
+                <td><span class="status status-partial">Cumple parcialmente</span></td>
+                <td>Alta</td>
+              </tr>
+              <tr>
+                <td>Gobernar</td>
+                <td>Gestión de riesgo de proveedores y MSP</td>
+                <td>El MSP que administra la red no tiene cláusulas contractuales de notificación de incidentes en menos de 24 horas</td>
+                <td><span class="status status-no">No cumple</span></td>
+                <td>Alta</td>
+              </tr>
+              <tr>
+                <td>Identificar</td>
+                <td>Inventario de activos de TI/OT</td>
+                <td>Inventario desactualizado; no incluye dispositivos IoT de las sucursales ni versión de firmware</td>
+                <td><span class="status status-partial">Cumple parcialmente</span></td>
+                <td>Media</td>
+              </tr>
+              <tr>
+                <td>Identificar</td>
+                <td>Documentación de topología de red</td>
+                <td>El diagrama de red vigente tiene más de dos años y no refleja la migración reciente a un proveedor de nube híbrida</td>
+                <td><span class="status status-no">No cumple</span></td>
+                <td>Media</td>
+              </tr>
+              <tr>
+                <td>Proteger</td>
+                <td>Autenticación multifactor (MFA)</td>
+                <td>MFA habilitado para banca en línea de clientes; ausente en accesos administrativos remotos del personal de TI</td>
+                <td><span class="status status-partial">Cumple parcialmente</span></td>
+                <td>Alta</td>
+              </tr>
+              <tr>
+                <td>Proteger</td>
+                <td>Segmentación de red</td>
+                <td>La red de cajeros automáticos comparte VLAN con estaciones de trabajo administrativas</td>
+                <td><span class="status status-no">No cumple</span></td>
+                <td>Alta</td>
+              </tr>
+              <tr>
+                <td>Proteger</td>
+                <td>Copias de seguridad</td>
+                <td>Backups diarios cifrados, pero sin pruebas de restauración documentadas en los últimos 12 meses</td>
+                <td><span class="status status-partial">Cumple parcialmente</span></td>
+                <td>Media</td>
+              </tr>
+              <tr>
+                <td>Detectar</td>
+                <td>Detección de código malicioso</td>
+                <td>Antivirus/EDR desplegado en el 92% de los endpoints; sin monitoreo centralizado de alertas fuera de horario laboral</td>
+                <td><span class="status status-partial">Cumple parcialmente</span></td>
+                <td>Media</td>
+              </tr>
+              <tr>
+                <td>Responder</td>
+                <td>Procedimientos de comunicación de incidentes</td>
+                <td>Existe un plan de respuesta a incidentes, pero no define plazos ni canal de notificación hacia CISA o el regulador financiero</td>
+                <td><span class="status status-partial">Cumple parcialmente</span></td>
+                <td>Alta</td>
+              </tr>
+              <tr>
+                <td>Recuperar</td>
+                <td>Plan de recuperación y continuidad</td>
+                <td>Plan de continuidad de negocio vigente, con simulacro exitoso realizado seis meses atrás</td>
+                <td><span class="status status-ok">Cumple</span></td>
+                <td>Baja</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>1.6 Lectura de los resultados</h4>
+        <p>
+          El patrón más relevante del ejercicio es que las brechas más
+          críticas no se concentran en tecnología ausente, sino en
+          configuración incompleta y gobernanza de terceros: la organización
+          ya invierte en controles razonables (MFA, EDR, backups cifrados,
+          plan de continuidad), pero su aplicación es inconsistente entre
+          distintos activos y no está respaldada contractualmente frente al
+          proveedor externo. Este hallazgo es consistente con la advertencia
+          de CISA de que buena parte del riesgo residual en organizaciones
+          medianas proviene de la gestión de proveedores de servicios
+          gestionados, razón por la cual la versión 2.0 de los CPGs reforzó
+          explícitamente esa meta.
+        </p>
+        <p class="highlight-quote">
+          La ausencia de segmentación entre la red de cajeros automáticos y
+          las estaciones administrativas fue calificada como el hallazgo de
+          mayor severidad del ejercicio: un compromiso en cualquier estación
+          de trabajo administrativa tendría, en el estado actual, una ruta de
+          movimiento lateral directa hacia la infraestructura de dispensación
+          de efectivo.
+        </p>
+
+        <h4>1.7 Priorización de la remediación</h4>
+        <p>
+          Siguiendo la misma lógica de calificación por costo, impacto y
+          facilidad de implementación que utiliza CISA en el reporte oficial
+          de los CPGs 2.0, se ordenaron las acciones correctivas de la
+          siguiente manera:
+        </p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Acción de remediación</th><th>Costo</th><th>Impacto</th><th>Facilidad</th><th>Plazo sugerido</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Exigir MFA en todo acceso administrativo remoto</td><td>Bajo</td><td>Alto</td><td>Alta</td><td>30 días</td></tr>
+              <tr><td>Segmentar la VLAN de cajeros automáticos del resto de la red</td><td>Medio</td><td>Alto</td><td>Media</td><td>90 días</td></tr>
+              <tr><td>Incorporar cláusula de notificación de incidentes en el contrato con el MSP</td><td>Bajo</td><td>Alto</td><td>Alta</td><td>30 días</td></tr>
+              <tr><td>Actualizar inventario de activos incluyendo IoT y firmware</td><td>Bajo</td><td>Medio</td><td>Alta</td><td>60 días</td></tr>
+              <tr><td>Definir plazos y canal formal de comunicación de incidentes</td><td>Bajo</td><td>Medio</td><td>Alta</td><td>45 días</td></tr>
+              <tr><td>Programar pruebas trimestrales de restauración de backups</td><td>Medio</td><td>Medio</td><td>Media</td><td>90 días</td></tr>
+              <tr><td>Centralizar el monitoreo de alertas EDR (SOC interno o tercerizado)</td><td>Alto</td><td>Alto</td><td>Baja</td><td>180 días</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Bajo este criterio, las primeras tres acciones —exigir MFA
+          administrativo, formalizar la cláusula de notificación de
+          incidentes con el MSP y actualizar el inventario de activos—
+          concentran la mejor relación entre costo y reducción de riesgo, y se
+          recomendó ejecutarlas dentro de los primeros 30 a 60 días
+          posteriores a la auditoría, antes de abordar la remediación de
+          mayor costo, como la centralización del monitoreo de alertas.
+        </p>
+
+        <h4>1.8 Lecciones del caso</h4>
+        <ul>
+          <li>Un marco voluntario como los CPGs resulta más útil como estructura de priorización que como checklist de cumplimiento binario: la mayoría de los hallazgos fueron de cumplimiento parcial, no de ausencia total de controles.</li>
+          <li>La gestión de terceros (MSP) fue el área con mayor brecha respecto a lo esperado, lo que confirma en la práctica el énfasis que la actualización 2.0 del marco puso en este tema.</li>
+          <li>El uso del CSET permitió comparar los resultados con la metodología oficial de CISA, dando trazabilidad y credibilidad al informe frente a la gerencia y ante una eventual auditoría externa.</li>
+          <li>El ejercicio evidenció que la madurez técnica y la madurez contractual/documental no siempre avanzan al mismo ritmo dentro de una misma organización.</li>
+        </ul>
       </article>
 
       <article class="text-card conclusion">
-        <h3>Conclusiones del equipo</h3>
-
+        <h3>2. Conclusiones generales</h3>
         <p>
-          Escribir una conclusión general basada en todas las secciones y
-          destacar los principales aprendizajes.
+          La investigación conceptual y el caso práctico desarrollado
+          permiten cerrar con varias conclusiones que integran ambos niveles
+          de análisis: el marco teórico de CISA y su aplicación concreta en
+          un ejercicio de auditoría.
         </p>
+        <ul>
+          <li>CISA no ofrece un único framework, sino un ecosistema de instrumentos complementarios (CSF 2.0, CPGs 2.0, ZTMM 2.0 y Secure by Design Pledge) que deben seleccionarse según el objetivo de la organización: gobernanza, priorización de inversión, modernización de arquitectura o evaluación de proveedores de software.</li>
+          <li>Los CPGs 2.0 demostraron ser, en el caso práctico, el instrumento más operativo para una auditoría de alcance limitado, gracias a su carácter priorizado y a la disponibilidad de una herramienta de autoevaluación estandarizada (CSET).</li>
+          <li>El caso confirmó, en un entorno simulado pero realista, un patrón documentado a nivel sectorial: las mayores brechas no suelen estar en la ausencia de tecnología, sino en la gobernanza, la configuración incompleta y la gestión contractual de terceros.</li>
+          <li>La naturaleza voluntaria de estos marcos no les resta utilidad práctica: en el caso analizado, sirvieron como referencia objetiva y externa para justificar ante la gerencia una hoja de ruta de inversión priorizada.</li>
+          <li>Para un profesional en formación, el mayor valor de trabajar con estos marcos no está en memorizar su estructura, sino en desarrollar el criterio para traducir un marco genérico en hallazgos, prioridades y plazos concretos para una organización específica.</li>
+        </ul>
       </article>
     </section>
 
